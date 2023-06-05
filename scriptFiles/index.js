@@ -30,7 +30,6 @@ const clearResultsArticle = () => {
 };
 
 //table row creater
-
 const createTableRow = (tableHeaderContent, tableDataContent) => {
     let tableRow = document.createElement('tr');
 
@@ -46,7 +45,25 @@ const createTableRow = (tableHeaderContent, tableDataContent) => {
     return tableRow;
 };
 
-// handling the coincap form
+//reject request handler
+const unsuccessfulRequestHandler = (error) => {
+    clearResultsArticle();
+    spinnerDisplayChanger(false);
+    
+    let resultsHeader = document.createElement('h4');
+    resultsHeader.innerText = 'Bad request!';
+    
+    let resultsParagraph = document.createElement('p');
+    resultsParagraph.innerText = 'Either the request failed because of a connection error or You entered invalid information.'
+    
+    resultsArticle.appendChild(resultsHeader);
+    resultsArticle.appendChild(resultsParagraph);
+
+    //alert(error);
+};
+
+
+// handling the coincap form -- get crypto currency data
 const coincapButton = document.getElementById('coincap_form_button');
 const coincapForm = document.getElementById('coincap_form');
 
@@ -56,13 +73,16 @@ coincapButton.addEventListener('click', async (e) => {
         console.log("Coincap form called");
 
         resultSectionDisplayChanger(true);
+        clearResultsArticle();
         spinnerDisplayChanger(true);
 
         const coinName = document.getElementById('f1-1').value;
         fetch(`http://api.coincap.io/v2/assets/${coinName}`)
         .then(result => result.json())
         .then(data => coincapSuccessfulResultHandler(data))
-        .catch(err => console.log(err)); 
+        .catch((err) => unsuccessfulRequestHandler(err)); 
+    } else {
+        alert("Can't make a request with an empty form.");
     };
 });
 
@@ -70,7 +90,6 @@ const coincapSuccessfulResultHandler = (dataSentByServer) => {
     const data = dataSentByServer.data;
     console.log("Adding data to results:", data);
 
-    clearResultsArticle();
     spinnerDisplayChanger(false);
 
     //adding a header 
@@ -95,3 +114,80 @@ const coincapSuccessfulResultHandler = (dataSentByServer) => {
     resultsArticle.appendChild(tableToDisplay);
 };
 
+//handling the Coindesk form - get Bitcoins value in certain currency
+const coindeskFormButton = document.getElementById('coindesk_form_button');
+const coindeskForm = document.getElementById('coindesk_form');
+
+coindeskFormButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (coindeskForm.checkValidity()) {
+        console.log("Coindesk form called");
+
+        resultSectionDisplayChanger(true);
+        clearResultsArticle();
+        spinnerDisplayChanger(true);
+
+        const currencySelected = document.getElementById('f2-1').value;
+
+        fetch('https://api.coindesk.com/v1/bpi/currentprice.json')
+        .then((result) => result.json())
+        .then((data) => coindeskSuccessfulRequestHandler(data, currencySelected))
+        .catch((error) => unsuccessfulRequestHandler(error));
+    } else {
+        alert("Can't make a request with an empty form.");
+    };
+});
+
+const coindeskSuccessfulRequestHandler = (dataSentByServer, currency) => {
+    console.log('dataSentByServer: ', dataSentByServer);
+
+    spinnerDisplayChanger(false);
+    
+    const data = dataSentByServer.bpi[currency];
+    console.log('data: ', data);
+
+    let tableToDisplay = document.createElement('table');
+    tableToDisplay.setAttribute('class', 'table_of_results');
+
+    const tableRow1 = createTableRow("Price:", `${Math.floor(data.rate_float * 100) / 100} ${data.code}`);
+
+    tableToDisplay.appendChild(tableRow1);
+    resultsArticle.appendChild(tableToDisplay);
+};
+
+//handling coinstats form 
+const coinstatFormButton = document.getElementById('coinstats_form_button');
+const coinstatForm = document.getElementById('coinstats_form');
+
+coinstatFormButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (coindeskForm.checkValidity()) {
+        console.log("Coinstat form called");
+
+        resultSectionDisplayChanger(true);
+        clearResultsArticle();
+        spinnerDisplayChanger(true);
+
+        const coinName = document.getElementById('f3-1').value;
+        const exchangeAmounts = document.querySelector('input[name="amount_of_exchanges"]:checked').value;
+
+        fetch(`https://api.coinstats.app/public/v1/markets?coinId=${coinName}`)
+        .then((result) => result.json())
+        .then((data) => coinstatSuccessfulRequestHandler(data, exchangeAmounts))
+        .catch((error) => unsuccessfulRequestHandler(error));
+    } else {
+        alert("Can't make a request with an empty form.");
+    };
+});
+
+const coinstatSuccessfulRequestHandler = (dataSentByServer, exchangeAmounts) => {
+    console.log(dataSentByServer, exchangeAmounts);
+
+    //making sure the array returned has items
+    if (dataSentByServer.length === 0) {
+        unsuccessfulRequestHandler("Crypto currency name invalid");
+    };
+
+
+    spinnerDisplayChanger(false);
+};
