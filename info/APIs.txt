@@ -1,0 +1,8 @@
+https://api.coincap.io/v2/assets -- Coincap: Crypto coins and their prices
+https://docs.coincap.io/ -- documentation
+
+https://api.coindesk.com/v1/bpi/currentprice.json -- Coindesk: Bitcoin and its value
+
+https://api.coinstats.app/public/v1/markets?coinId=bitcoin -- Cointstats: difference in bitcoin prices between platforms
+
+https://mixedanalytics.com/blog/list-actually-free-open-no-auth-needed-apis/ -- all APIs

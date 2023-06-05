@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="Description"
+      content="Eiusmod quis id in voluptate eiusmod aute sunt aliqua labore incididunt."
+    />
+    <meta name="keywords" content="API, fetch, promise, crypto" />
+    <link rel="stylesheet" href="/stylesheets/index.css" />
+    <title>Crypto API Fetcher</title>
+  </head>
+  <body>
+    <header>
+      <h1>Crypto API Fetcher</h1>
+    </header>
+    <main>
+      <section>
+        <h2>Switch between different APIs</h2>
+        <p>Scroll between them</p>
+        <div class="scrollable_box_div">
+          <!-- https://api.coincap.io/v2/assets -- Coincap: Crypto coins and their prices -->
+          <!--User inserts a coin name and we fetch data if its valid -->
+          <form id="coincap_form">
+            <h3>Get fresh data about a coin</h3>
+            <p>Powered by CoinCap</p>
+            <label for="f1-1">Which coin are You interested in?</label>
+            <br>
+            <input
+              id="f1-1"
+              type="text"
+              placeholder="Coin (name)"
+              name="coin"
+              required
+            />
+            <br/>
+            <button type="submit">Get fresh data</button>
+          </form>
+          <!--https://api.coindesk.com/v1/bpi/currentprice.json -- Coindesk: Bitcoin and its value-->
+          <!---->
+          <form id="">
+            <h3>Get the value of Bitcoin in certain currencies</h3>
+            <p>Powered by CoinDesk</p>
+            <label for="f2-1">Select the currencies</label>
+            <br/>
+            <select id="f2-1" name="currency">
+              <option value="" disabled selected>Currency</option>
+              <option value="USD">USD</option>
+              <option value="GBP">GBP</option>
+              <option value="EUR">EUR</option>
+            </select>
+            <br/>
+            <button type="submit">Get fresh data</button>
+          </form>
+          <!-- https://api.coinstats.app/public/v1/markets?coinId=bitcoin -- Cointstats: difference in bitcoin prices between platforms -->
+          <!-- user inserts a coin name and we place it after the coinId in the url, fetch data and get the best deals-->
+          <form>
+            <h3>Get the cheapest prices on a coin</h3>
+            <p>Powered by CoinStats</p>
+            <div>
+              <label for="f3-1">Which coin are You interested in?</label>
+              <br/>
+              <input
+                id="f3-1"
+                type="text"
+                name="amount_of_exchanges"
+                required
+                placeholder="Coin (name)"
+              />
+            </div>
+            <div>
+              <label for="amount_of_exchanges"
+                >How many options do You need?</label
+              >
+              <br/>
+              <input
+                type="radio"
+                id="f3-2-1"
+                name="amount_of_exchanges"
+                required
+                value="1"
+                selected
+              />
+              <label for="f3-2-1">Get the best exchange (by rate)</label>
+              <br/>
+              <input
+                type="radio"
+                id="f3-2-2"
+                name="amount_of_exchanges"
+                value="3"
+                required
+              />
+              <label for="f3-2-2">Get 3 of the best exchanges (by rate)</label>
+              <br/>
+              <input
+                type="radio"
+                id="f3-2-3"
+                name="amount_of_exchanges"
+                value="5"
+                required
+              />
+              <label for="f3-2-3">Get 5 of the best exchanges (by rate)</label>
+            </div>
+            <button type="submit">Get fresh data</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>© 2023 Bitropia, All Rights Reserved</p>
+    </footer>
+  </body>
+</html>
