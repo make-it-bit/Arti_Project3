@@ -139,12 +139,9 @@ coindeskFormButton.addEventListener('click', (e) => {
 });
 
 const coindeskSuccessfulRequestHandler = (dataSentByServer, currency) => {
-    console.log('dataSentByServer: ', dataSentByServer);
-
     spinnerDisplayChanger(false);
     
     const data = dataSentByServer.bpi[currency];
-    console.log('data: ', data);
 
     let tableToDisplay = document.createElement('table');
     tableToDisplay.setAttribute('class', 'table_of_results');
@@ -173,21 +170,66 @@ coinstatFormButton.addEventListener('click', (e) => {
 
         fetch(`https://api.coinstats.app/public/v1/markets?coinId=${coinName}`)
         .then((result) => result.json())
-        .then((data) => coinstatSuccessfulRequestHandler(data, exchangeAmounts))
+        .then((data) => coinstatSuccessfulRequestHandler(data, exchangeAmounts, coinName))
         .catch((error) => unsuccessfulRequestHandler(error));
     } else {
         alert("Can't make a request with an empty form.");
     };
 });
 
-const coinstatSuccessfulRequestHandler = (dataSentByServer, exchangeAmounts) => {
-    console.log(dataSentByServer, exchangeAmounts);
+const coinstatSuccessfulRequestHandler = async (dataSentByServer, exchangeAmounts, coinName) => {
+    console.log(dataSentByServer);
 
     //making sure the array returned has items
     if (dataSentByServer.length === 0) {
         unsuccessfulRequestHandler("Crypto currency name invalid");
-    };
-
-
+    };  
     spinnerDisplayChanger(false);
+
+    let resultsHeader = document.createElement('h4');
+    resultsHeader.innerText = `${exchangeAmounts} best exchanges for ${coinName}`;
+    resultsArticle.appendChild(resultsHeader);
+
+    let resultsParagraph = document.createElement('p');
+    resultsParagraph.innerText = 'Various trading pairs, "unrelative value"';
+    resultsArticle.appendChild(resultsParagraph);
+
+    const arrayWithBestExchanges = [];
+    
+    let indexSlicedAt = 0;
+    let i = 0;
+    let j = 0;
+
+    while (i < exchangeAmounts) {
+        arrayWithBestExchanges[i] = dataSentByServer[j];
+        while (j < dataSentByServer.length) {
+            if (arrayWithBestExchanges[i].price > dataSentByServer[j].price) {
+                arrayWithBestExchanges[i] = dataSentByServer[j];
+                indexSlicedAt = j;
+            };
+            j++;
+        };
+        dataSentByServer.splice(indexSlicedAt, indexSlicedAt);
+        j = 0;
+        i++;
+    };
+    
+    //looping them to the table
+    i = 0;
+    let tableToDisplay = document.createElement('table');
+    while (i < arrayWithBestExchanges.length) {
+        let tableRow = document.createElement('tr');
+        
+        let tableHeader = document.createElement('th');
+        tableHeader.innerText = `${arrayWithBestExchanges[i].exchange}`;
+        tableRow.appendChild(tableHeader);
+
+        let tableData = document.createElement('td');
+        tableData.innerText = `Pair: ${arrayWithBestExchanges[i].pair}; Price: ${arrayWithBestExchanges[i].price}`;
+        tableRow.appendChild(tableData);
+
+        tableToDisplay.appendChild(tableRow);
+        i++
+    };
+    resultsArticle.appendChild(tableToDisplay);
 };

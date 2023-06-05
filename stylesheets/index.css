@@ -61,7 +61,7 @@ main {
 .scrollable_box_section {
   margin: 0 auto 15px auto;
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   width: 80%;
   align-items: center;
   overflow-x: auto;
