@@ -11,6 +11,22 @@ body{
     display: flex;
     flex-direction: column;
 }
+button{
+    padding:0.5rem 0.75rem; 
+    background-color: #ffffff;
+    border: 2px solid #fca311;
+    border-radius: 40px;
+    color: #fca311;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+button:hover{
+    transform: scale(1.05);
+    transition: transform .2s;
+    box-shadow: 4px 4px 5px 2px #5c5b5b;
+}
+
 
 header{
     text-align: center;
@@ -29,17 +45,67 @@ section{
     width: 80%;
     border-radius: 10px;
     border: 2px solid #fca311;
+    padding: calc(1vw + 10px); 
 }
+section > h2{
+    margin: calc(1vh + 3px) 0;
+    font-size: 1.75rem;
+}
+section > p {
+    margin: -2px 0 calc(1.5vh + 10px) 0;
+    font-size: 1rem;
+}
+/*margin: top right bottom left;*/
 .scrollable_box_div{
     margin: 0 auto;
     display: flex;
+    flex-direction: row-reverse;
     width: 80%;
+    align-items: center;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    background-color: #f7f5f5;
+    box-shadow: 0 0 10px 10px #e6e3e3;
+    border-radius: 10px;
 }
-.scrollable_box_div > form {
+form {
     min-width: 100%; 
     scroll-snap-align: start; 
+    padding: 5px;
+}
+form > h3 {
+    font-size: 1.4rem;
+    margin: calc(1vh + 5px) 0 10px 0;
+}
+form > p {
+    font-size: 0.95rem;
+    margin: 0 0 10px 0;
+}
+form label {
+    display: inline-block;
+    margin: 5px 0;
+    font-size: 1.1rem;
+}
+form input[type=text] {
+    border: 2px solid #fca311;
+    border-radius: 20px;
+    padding: 7px 12px;
+}
+.text_input_div {
+    margin: 10px 0;
+}
+.radio_input_div{
+    margin: 10px 0;
+}
+.radio_input_div label {
+    font-size: 0.95rem;
+    line-height: 80%;
+}
+.radio_input_div label:first-of-type {
+    font-size: 1.1rem;
+}
+.select_input_div {
+    margin: 10px 0;
 }
 
 

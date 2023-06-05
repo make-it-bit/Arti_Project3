@@ -26,40 +26,42 @@
           <form id="coincap_form">
             <h3>Get fresh data about a coin</h3>
             <p>Powered by CoinCap</p>
-            <label for="f1-1">Which coin are You interested in?</label>
-            <br>
-            <input
-              id="f1-1"
-              type="text"
-              placeholder="Coin (name)"
-              name="coin"
-              required
-            />
-            <br/>
+            <div class="text_input_div">
+                <label for="f1-1">Which coin are You interested in?</label>
+                <br>
+                <input
+                  id="f1-1"
+                  type="text"
+                  placeholder="Coin (name)"
+                  name="coin"
+                  required
+                />
+            </div>
             <button type="submit">Get fresh data</button>
           </form>
           <!--https://api.coindesk.com/v1/bpi/currentprice.json -- Coindesk: Bitcoin and its value-->
           <!---->
-          <form id="">
+          <form id="coindesk_form">
             <h3>Get the value of Bitcoin in certain currencies</h3>
             <p>Powered by CoinDesk</p>
-            <label for="f2-1">Select the currencies</label>
-            <br/>
-            <select id="f2-1" name="currency">
-              <option value="" disabled selected>Currency</option>
-              <option value="USD">USD</option>
-              <option value="GBP">GBP</option>
-              <option value="EUR">EUR</option>
-            </select>
-            <br/>
+            <div class="select_input_div">
+                <label for="f2-1">Select the currencies</label>
+                <br/>
+                <select id="f2-1" name="currency">
+                  <option value="" disabled selected>Currency</option>
+                  <option value="USD">USD</option>
+                  <option value="GBP">GBP</option>
+                  <option value="EUR">EUR</option>
+                </select>
+            </div>
             <button type="submit">Get fresh data</button>
           </form>
           <!-- https://api.coinstats.app/public/v1/markets?coinId=bitcoin -- Cointstats: difference in bitcoin prices between platforms -->
           <!-- user inserts a coin name and we place it after the coinId in the url, fetch data and get the best deals-->
-          <form>
+          <form id="coinstats_form">
             <h3>Get the cheapest prices on a coin</h3>
             <p>Powered by CoinStats</p>
-            <div>
+            <div class="text_input_div">
               <label for="f3-1">Which coin are You interested in?</label>
               <br/>
               <input
@@ -70,7 +72,7 @@
                 placeholder="Coin (name)"
               />
             </div>
-            <div>
+            <div class="radio_input_div">
               <label for="amount_of_exchanges"
                 >How many options do You need?</label
               >
