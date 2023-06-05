@@ -17,10 +17,10 @@
       <h1>Crypto API Fetcher</h1>
     </header>
     <main>
-      <section>
+      <section class="big_section">
         <h2>Switch between different APIs</h2>
         <p>Scroll between them</p>
-        <div class="scrollable_box_div">
+        <section class="scrollable_box_section">
           <!-- https://api.coincap.io/v2/assets -- Coincap: Crypto coins and their prices -->
           <!--User inserts a coin name and we fetch data if its valid -->
           <form id="coincap_form">
@@ -37,7 +37,7 @@
                   required
                 />
             </div>
-            <button type="submit">Get fresh data</button>
+            <button type="submit" id="coincap_form_button">Get fresh data</button>
           </form>
           <!--https://api.coindesk.com/v1/bpi/currentprice.json -- Coindesk: Bitcoin and its value-->
           <!---->
@@ -45,7 +45,7 @@
             <h3>Get the value of Bitcoin in certain currencies</h3>
             <p>Powered by CoinDesk</p>
             <div class="select_input_div">
-                <label for="f2-1">Select the currencies</label>
+                <label for="f2-1">Select the currency</label>
                 <br/>
                 <select id="f2-1" name="currency">
                   <option value="" disabled selected>Currency</option>
@@ -107,11 +107,26 @@
             </div>
             <button type="submit">Get fresh data</button>
           </form>
-        </div>
+        </section>
+        <section class="results_section" id="results_section">
+          <h3>Results:</h3>
+          <div class="spinner" id="spinner">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <article class="results_article" id="results_article"></article>
+        </section>
       </section>
     </main>
     <footer>
       <p>© 2023 Bitropia, All Rights Reserved</p>
     </footer>
+    <script src="/scriptFiles/index.js"></script>
   </body>
 </html>

@@ -1,119 +1,211 @@
-html, body {
-    margin: 0;
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3Crect stroke='%23ffffff' stroke-width='0.2' width='1' height='1' id='s'/%3E%3Cpattern id='a' width='3' height='3' patternUnits='userSpaceOnUse' patternTransform='scale(13.2) translate(-924.24 -693.18)'%3E%3Cuse fill='%23fcfcfc' href='%23s' y='2'/%3E%3Cuse fill='%23fcfcfc' href='%23s' x='1' y='2'/%3E%3Cuse fill='%23fafafa' href='%23s' x='2' y='2'/%3E%3Cuse fill='%23fafafa' href='%23s'/%3E%3Cuse fill='%23f7f7f7' href='%23s' x='2'/%3E%3Cuse fill='%23f7f7f7' href='%23s' x='1' y='1'/%3E%3C/pattern%3E%3Cpattern id='b' width='7' height='11' patternUnits='userSpaceOnUse' patternTransform='scale(13.2) translate(-924.24 -693.18)'%3E%3Cg fill='%23f5f5f5'%3E%3Cuse href='%23s'/%3E%3Cuse href='%23s' y='5' /%3E%3Cuse href='%23s' x='1' y='10'/%3E%3Cuse href='%23s' x='2' y='1'/%3E%3Cuse href='%23s' x='2' y='4'/%3E%3Cuse href='%23s' x='3' y='8'/%3E%3Cuse href='%23s' x='4' y='3'/%3E%3Cuse href='%23s' x='4' y='7'/%3E%3Cuse href='%23s' x='5' y='2'/%3E%3Cuse href='%23s' x='5' y='6'/%3E%3Cuse href='%23s' x='6' y='9'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='h' width='5' height='13' patternUnits='userSpaceOnUse' patternTransform='scale(13.2) translate(-924.24 -693.18)'%3E%3Cg fill='%23f5f5f5'%3E%3Cuse href='%23s' y='5'/%3E%3Cuse href='%23s' y='8'/%3E%3Cuse href='%23s' x='1' y='1'/%3E%3Cuse href='%23s' x='1' y='9'/%3E%3Cuse href='%23s' x='1' y='12'/%3E%3Cuse href='%23s' x='2'/%3E%3Cuse href='%23s' x='2' y='4'/%3E%3Cuse href='%23s' x='3' y='2'/%3E%3Cuse href='%23s' x='3' y='6'/%3E%3Cuse href='%23s' x='3' y='11'/%3E%3Cuse href='%23s' x='4' y='3'/%3E%3Cuse href='%23s' x='4' y='7'/%3E%3Cuse href='%23s' x='4' y='10'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='c' width='17' height='13' patternUnits='userSpaceOnUse' patternTransform='scale(13.2) translate(-924.24 -693.18)'%3E%3Cg fill='%23f2f2f2'%3E%3Cuse href='%23s' y='11'/%3E%3Cuse href='%23s' x='2' y='9'/%3E%3Cuse href='%23s' x='5' y='12'/%3E%3Cuse href='%23s' x='9' y='4'/%3E%3Cuse href='%23s' x='12' y='1'/%3E%3Cuse href='%23s' x='16' y='6'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='d' width='19' height='17' patternUnits='userSpaceOnUse' patternTransform='scale(13.2) translate(-924.24 -693.18)'%3E%3Cg fill='%23ffffff'%3E%3Cuse href='%23s' y='9'/%3E%3Cuse href='%23s' x='16' y='5'/%3E%3Cuse href='%23s' x='14' y='2'/%3E%3Cuse href='%23s' x='11' y='11'/%3E%3Cuse href='%23s' x='6' y='14'/%3E%3C/g%3E%3Cg fill='%23efefef'%3E%3Cuse href='%23s' x='3' y='13'/%3E%3Cuse href='%23s' x='9' y='7'/%3E%3Cuse href='%23s' x='13' y='10'/%3E%3Cuse href='%23s' x='15' y='4'/%3E%3Cuse href='%23s' x='18' y='1'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='e' width='47' height='53' patternUnits='userSpaceOnUse' patternTransform='scale(13.2) translate(-924.24 -693.18)'%3E%3Cg fill='%2314213D'%3E%3Cuse href='%23s' x='2' y='5'/%3E%3Cuse href='%23s' x='16' y='38'/%3E%3Cuse href='%23s' x='46' y='42'/%3E%3Cuse href='%23s' x='29' y='20'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='f' width='59' height='71' patternUnits='userSpaceOnUse' patternTransform='scale(13.2) translate(-924.24 -693.18)'%3E%3Cg fill='%2314213D'%3E%3Cuse href='%23s' x='33' y='13'/%3E%3Cuse href='%23s' x='27' y='54'/%3E%3Cuse href='%23s' x='55' y='55'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='g' width='139' height='97' patternUnits='userSpaceOnUse' patternTransform='scale(13.2) translate(-924.24 -693.18)'%3E%3Cg fill='%2314213D'%3E%3Cuse href='%23s' x='11' y='8'/%3E%3Cuse href='%23s' x='51' y='13'/%3E%3Cuse href='%23s' x='17' y='73'/%3E%3Cuse href='%23s' x='99' y='57'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23a)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23b)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23h)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23c)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23d)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23e)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23f)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23g)' width='100%25' height='100%25'/%3E%3C/svg%3E");
-    background-attachment: fixed;
-    background-size: cover;
-    color: #000000;
+html,
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3Crect stroke='%23ffffff' stroke-width='0.2' width='1' height='1' id='s'/%3E%3Cpattern id='a' width='3' height='3' patternUnits='userSpaceOnUse' patternTransform='scale(13.2) translate(-924.24 -693.18)'%3E%3Cuse fill='%23fcfcfc' href='%23s' y='2'/%3E%3Cuse fill='%23fcfcfc' href='%23s' x='1' y='2'/%3E%3Cuse fill='%23fafafa' href='%23s' x='2' y='2'/%3E%3Cuse fill='%23fafafa' href='%23s'/%3E%3Cuse fill='%23f7f7f7' href='%23s' x='2'/%3E%3Cuse fill='%23f7f7f7' href='%23s' x='1' y='1'/%3E%3C/pattern%3E%3Cpattern id='b' width='7' height='11' patternUnits='userSpaceOnUse' patternTransform='scale(13.2) translate(-924.24 -693.18)'%3E%3Cg fill='%23f5f5f5'%3E%3Cuse href='%23s'/%3E%3Cuse href='%23s' y='5' /%3E%3Cuse href='%23s' x='1' y='10'/%3E%3Cuse href='%23s' x='2' y='1'/%3E%3Cuse href='%23s' x='2' y='4'/%3E%3Cuse href='%23s' x='3' y='8'/%3E%3Cuse href='%23s' x='4' y='3'/%3E%3Cuse href='%23s' x='4' y='7'/%3E%3Cuse href='%23s' x='5' y='2'/%3E%3Cuse href='%23s' x='5' y='6'/%3E%3Cuse href='%23s' x='6' y='9'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='h' width='5' height='13' patternUnits='userSpaceOnUse' patternTransform='scale(13.2) translate(-924.24 -693.18)'%3E%3Cg fill='%23f5f5f5'%3E%3Cuse href='%23s' y='5'/%3E%3Cuse href='%23s' y='8'/%3E%3Cuse href='%23s' x='1' y='1'/%3E%3Cuse href='%23s' x='1' y='9'/%3E%3Cuse href='%23s' x='1' y='12'/%3E%3Cuse href='%23s' x='2'/%3E%3Cuse href='%23s' x='2' y='4'/%3E%3Cuse href='%23s' x='3' y='2'/%3E%3Cuse href='%23s' x='3' y='6'/%3E%3Cuse href='%23s' x='3' y='11'/%3E%3Cuse href='%23s' x='4' y='3'/%3E%3Cuse href='%23s' x='4' y='7'/%3E%3Cuse href='%23s' x='4' y='10'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='c' width='17' height='13' patternUnits='userSpaceOnUse' patternTransform='scale(13.2) translate(-924.24 -693.18)'%3E%3Cg fill='%23f2f2f2'%3E%3Cuse href='%23s' y='11'/%3E%3Cuse href='%23s' x='2' y='9'/%3E%3Cuse href='%23s' x='5' y='12'/%3E%3Cuse href='%23s' x='9' y='4'/%3E%3Cuse href='%23s' x='12' y='1'/%3E%3Cuse href='%23s' x='16' y='6'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='d' width='19' height='17' patternUnits='userSpaceOnUse' patternTransform='scale(13.2) translate(-924.24 -693.18)'%3E%3Cg fill='%23ffffff'%3E%3Cuse href='%23s' y='9'/%3E%3Cuse href='%23s' x='16' y='5'/%3E%3Cuse href='%23s' x='14' y='2'/%3E%3Cuse href='%23s' x='11' y='11'/%3E%3Cuse href='%23s' x='6' y='14'/%3E%3C/g%3E%3Cg fill='%23efefef'%3E%3Cuse href='%23s' x='3' y='13'/%3E%3Cuse href='%23s' x='9' y='7'/%3E%3Cuse href='%23s' x='13' y='10'/%3E%3Cuse href='%23s' x='15' y='4'/%3E%3Cuse href='%23s' x='18' y='1'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='e' width='47' height='53' patternUnits='userSpaceOnUse' patternTransform='scale(13.2) translate(-924.24 -693.18)'%3E%3Cg fill='%2314213D'%3E%3Cuse href='%23s' x='2' y='5'/%3E%3Cuse href='%23s' x='16' y='38'/%3E%3Cuse href='%23s' x='46' y='42'/%3E%3Cuse href='%23s' x='29' y='20'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='f' width='59' height='71' patternUnits='userSpaceOnUse' patternTransform='scale(13.2) translate(-924.24 -693.18)'%3E%3Cg fill='%2314213D'%3E%3Cuse href='%23s' x='33' y='13'/%3E%3Cuse href='%23s' x='27' y='54'/%3E%3Cuse href='%23s' x='55' y='55'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='g' width='139' height='97' patternUnits='userSpaceOnUse' patternTransform='scale(13.2) translate(-924.24 -693.18)'%3E%3Cg fill='%2314213D'%3E%3Cuse href='%23s' x='11' y='8'/%3E%3Cuse href='%23s' x='51' y='13'/%3E%3Cuse href='%23s' x='17' y='73'/%3E%3Cuse href='%23s' x='99' y='57'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23a)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23b)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23h)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23c)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23d)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23e)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23f)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23g)' width='100%25' height='100%25'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+  color: #000000;
 }
-body{ 
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
-button{
-    padding:0.5rem 0.75rem; 
-    background-color: #ffffff;
-    border: 2px solid #fca311;
-    border-radius: 40px;
-    color: #fca311;
-    font-size: 1.1rem;
-    font-weight: bold;
-    margin: 10px 0;
+button {
+  padding: 0.5rem 0.75rem;
+  background-color: #ffffff;
+  border: 2px solid #fca311;
+  border-radius: 40px;
+  color: #fca311;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 10px 0;
 }
-button:hover{
-    transform: scale(1.05);
-    transition: transform .2s;
-    box-shadow: 4px 4px 5px 2px #5c5b5b;
-}
-
-
-header{
-    text-align: center;
-    font-size: 2.5rem;
-    color: #14213d;
+button:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s;
+  box-shadow: 4px 4px 5px 2px #5c5b5b;
 }
 
-main{
-    text-align: center;
-    margin-bottom: calc(5vh + 10px);
+header {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #14213d;
 }
 
-section{
-    background-color: #ffffff;
-    margin: 0 auto;
-    width: 80%;
-    border-radius: 10px;
-    border: 2px solid #fca311;
-    padding: calc(1vw + 10px); 
+main {
+  text-align: center;
+  margin-bottom: calc(5vh + 10px);
 }
-section > h2{
-    margin: calc(1vh + 3px) 0;
-    font-size: 1.75rem;
+
+.big_section {
+  background-color: #ffffff;
+  margin: 0 auto;
+  width: 80%;
+  border-radius: 10px;
+  border: 2px solid #fca311;
+  padding: calc(1vw + 10px);
 }
-section > p {
-    margin: -2px 0 calc(1.5vh + 10px) 0;
-    font-size: 1rem;
+.big_section > h2 {
+  margin: calc(1vh + 3px) 0;
+  font-size: 1.75rem;
 }
+.big_section > p {
+  margin: -2px 0 calc(1.5vh + 10px) 0;
+  font-size: 1rem;
+}
+
 /*margin: top right bottom left;*/
-.scrollable_box_div{
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row-reverse;
-    width: 80%;
-    align-items: center;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    background-color: #f7f5f5;
-    box-shadow: 0 0 10px 10px #e6e3e3;
-    border-radius: 10px;
+.scrollable_box_section {
+  margin: 0 auto 15px auto;
+  display: flex;
+  flex-direction: row-reverse;
+  width: 80%;
+  align-items: center;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  background-color: #f7f5f5;
+  box-shadow: 0 0 10px 10px #e6e3e3;
+  border-radius: 10px;
 }
 form {
-    min-width: 100%; 
-    scroll-snap-align: start; 
-    padding: 5px;
+  min-width: 100%;
+  scroll-snap-align: start;
+  padding: 5px;
 }
 form > h3 {
-    font-size: 1.4rem;
-    margin: calc(1vh + 5px) 0 10px 0;
+  font-size: 1.4rem;
+  margin: calc(1vh + 5px) 0 10px 0;
 }
 form > p {
-    font-size: 0.95rem;
-    margin: 0 0 10px 0;
+  font-size: 0.95rem;
+  margin: 0 0 10px 0;
 }
 form label {
-    display: inline-block;
-    margin: 5px 0;
-    font-size: 1.1rem;
+  display: inline-block;
+  margin: 5px 0;
+  font-size: 1.1rem;
 }
-form input[type=text] {
-    border: 2px solid #fca311;
-    border-radius: 20px;
-    padding: 7px 12px;
+form input[type="text"] {
+  border: 2px solid #fca311;
+  border-radius: 20px;
+  padding: 7px 12px;
 }
 .text_input_div {
-    margin: 10px 0;
+  margin: 10px 0;
 }
-.radio_input_div{
-    margin: 10px 0;
+.radio_input_div {
+  margin: 10px 0;
 }
 .radio_input_div label {
-    font-size: 0.95rem;
-    line-height: 80%;
+  font-size: 0.95rem;
+  line-height: 80%;
 }
 .radio_input_div label:first-of-type {
-    font-size: 1.1rem;
+  font-size: 1.1rem;
 }
 .select_input_div {
-    margin: 10px 0;
+  margin: 10px 0;
 }
 
+.results_section {
+  margin: 0 auto 15px auto;
+  width: 80%;
+  text-align: center;
+  background-color: #f7f5f5;
+  box-shadow: 0 0 10px 10px #e6e3e3;
+  border-radius: 10px;
+}
+.results_section > h3{
+  margin: calc(1vh + 3px) 0;
+  font-size: 1.4rem;
+}
 
 footer {
-    margin-top: auto;
-    text-align: center;
-    font-size: 1.2rem;
-    background-color: #14213d;
-    color: #fca311;
-    border-top: 2px solid #fca311;
+  margin-top: auto;
+  text-align: center;
+  font-size: 1.2rem;
+  background-color: #14213d;
+  color: #fca311;
+  border-top: 2px solid #fca311;
+}
+
+/*spinner's CSS*/
+.spinner {
+  margin: 0 auto;
+  transform: translateX(-60%);
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.spinner span {
+  position: absolute;
+  top: 50%;
+  left: var(--left);
+  width: 35px;
+  height: 7px;
+  background: #fca311;
+  animation: dominos 1s ease infinite;
+  box-shadow: 2px 2px 3px 0px black;
+}
+
+.spinner span:nth-child(1) {
+  --left: 80px;
+  animation-delay: 0.125s;
+}
+
+.spinner span:nth-child(2) {
+  --left: 70px;
+  animation-delay: 0.3s;
+}
+
+.spinner span:nth-child(3) {
+  left: 60px;
+  animation-delay: 0.425s;
+}
+
+.spinner span:nth-child(4) {
+  animation-delay: 0.54s;
+  left: 50px;
+}
+
+.spinner span:nth-child(5) {
+  animation-delay: 0.665s;
+  left: 40px;
+}
+
+.spinner span:nth-child(6) {
+  animation-delay: 0.79s;
+  left: 30px;
+}
+
+.spinner span:nth-child(7) {
+  animation-delay: 0.915s;
+  left: 20px;
+}
+
+.spinner span:nth-child(8) {
+  left: 10px;
+}
+
+@keyframes dominos {
+  50% {
+    opacity: 0.7;
+  }
+
+  75% {
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+
+  80% {
+    opacity: 1;
+  }
 }

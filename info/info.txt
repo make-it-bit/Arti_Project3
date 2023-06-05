@@ -3,3 +3,5 @@ background color: #ffffff (white);
 text color: #000000;
 lines, etc 1: #14213d (dark blue);
 lines, etc 2: #fca311 (orange);
+
+tekitada formide flexboxi alla uus div kus resulte naidata
