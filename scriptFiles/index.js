@@ -144,7 +144,7 @@ const coindeskSuccessfulRequestHandler = (dataSentByServer, currency) => {
     const data = dataSentByServer.bpi[currency];
 
     let tableToDisplay = document.createElement('table');
-    tableToDisplay.setAttribute('class', 'table_of_results');
+    //tableToDisplay.setAttribute('class', 'table_of_results');
 
     const tableRow1 = createTableRow("Price:", `${Math.floor(data.rate_float * 100) / 100} ${data.code}`);
 
@@ -187,7 +187,7 @@ const coinstatSuccessfulRequestHandler = async (dataSentByServer, exchangeAmount
     spinnerDisplayChanger(false);
 
     let resultsHeader = document.createElement('h4');
-    resultsHeader.innerText = `${exchangeAmounts} best exchanges for ${coinName}`;
+    resultsHeader.innerText = `${exchangeAmounts} best exchange(s) for ${coinName}`;
     resultsArticle.appendChild(resultsHeader);
 
     let resultsParagraph = document.createElement('p');

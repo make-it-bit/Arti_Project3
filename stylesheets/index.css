@@ -111,16 +111,35 @@ form input[type="text"] {
 }
 
 .results_section {
-  margin: 0 auto 15px auto;
-  width: 80%;
+  margin: calc(8px + 3vh) auto 15px auto;
+  width: 75%;
   text-align: center;
   background-color: #f7f5f5;
   box-shadow: 0 0 10px 10px #e6e3e3;
   border-radius: 10px;
+  padding: calc(1vw + 10px);
 }
 .results_section > h3{
   margin: calc(1vh + 3px) 0;
   font-size: 1.4rem;
+}
+.results_article {
+  text-align: center;
+}
+.results_article > h4{
+  font-size: 1.2rem;
+  margin: 3px 0;
+}
+.results_article > p{
+  font-size: 0.95rem;
+  margin: 2px 0;
+}
+.results_article > table {
+  margin: calc(5px + 2vh) auto;
+  text-align: left;
+}
+.results_article > table th {
+  padding-right: calc(1.5vw + 1px);
 }
 
 footer {
