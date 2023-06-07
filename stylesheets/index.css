@@ -48,10 +48,12 @@ main {
   border: 2px solid #fca311;
   padding: calc(1vw + 10px);
 }
+
 .big_section > h2 {
   margin: calc(1vh + 3px) 0;
   font-size: 1.75rem;
 }
+
 .big_section > p {
   margin: -2px 0 calc(1.5vh + 10px) 0;
   font-size: 1rem;
@@ -70,42 +72,52 @@ main {
   box-shadow: 0 0 10px 10px #e6e3e3;
   border-radius: 10px;
 }
+
 form {
   min-width: 100%;
   scroll-snap-align: start;
   padding: 5px;
 }
+
 form > h3 {
   font-size: 1.4rem;
   margin: calc(1vh + 5px) 0 10px 0;
 }
+
 form > p {
   font-size: 0.95rem;
   margin: 0 0 10px 0;
 }
+
 form label {
   display: inline-block;
   margin: 5px 0;
   font-size: 1.1rem;
 }
+
 form input[type="text"] {
   border: 2px solid #fca311;
   border-radius: 20px;
   padding: 7px 12px;
 }
+
 .text_input_div {
   margin: 10px 0;
 }
+
 .radio_input_div {
   margin: 10px 0;
 }
+
 .radio_input_div label {
   font-size: 0.95rem;
   line-height: 80%;
 }
+
 .radio_input_div label:first-of-type {
   font-size: 1.1rem;
 }
+
 .select_input_div {
   margin: 10px 0;
 }
@@ -119,25 +131,31 @@ form input[type="text"] {
   border-radius: 10px;
   padding: calc(1vw + 10px);
 }
-.results_section > h3{
+
+.results_section > h3 {
   margin: calc(1vh + 3px) 0;
   font-size: 1.4rem;
 }
+
 .results_article {
   text-align: center;
 }
-.results_article > h4{
+
+.results_article > h4 {
   font-size: 1.2rem;
   margin: 3px 0;
 }
-.results_article > p{
+
+.results_article > p {
   font-size: 0.95rem;
   margin: 2px 0;
 }
+
 .results_article > table {
   margin: calc(5px + 2vh) auto;
   text-align: left;
 }
+
 .results_article > table th {
   padding-right: calc(1.5vw + 1px);
 }

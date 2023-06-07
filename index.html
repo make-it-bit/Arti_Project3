@@ -27,17 +27,19 @@
             <h3>Get fresh data about a coin</h3>
             <p>Powered by CoinCap</p>
             <div class="text_input_div">
-                <label for="f1-1">Which coin are You interested in?</label>
-                <br>
-                <input
-                  id="f1-1"
-                  type="text"
-                  placeholder="Coin (name)"
-                  name="coin"
-                  required
-                />
+              <label for="f1-1">Which coin are You interested in?</label>
+              <br />
+              <input
+                id="f1-1"
+                type="text"
+                placeholder="Coin (name)"
+                name="coin"
+                required
+              />
             </div>
-            <button type="submit" id="coincap_form_button">Get fresh data</button>
+            <button type="submit" id="coincap_form_button">
+              Get fresh data
+            </button>
           </form>
           <!--https://api.coindesk.com/v1/bpi/currentprice.json -- Coindesk: Bitcoin and its value-->
           <!---->
@@ -45,16 +47,18 @@
             <h3>Get the value of Bitcoin in certain currencies</h3>
             <p>Powered by CoinDesk</p>
             <div class="select_input_div">
-                <label for="f2-1">Select the currency</label>
-                <br/>
-                <select id="f2-1" name="currency">
-                  <option value="" disabled selected>Currency</option>
-                  <option value="USD">USD</option>
-                  <option value="GBP">GBP</option>
-                  <option value="EUR">EUR</option>
-                </select>
+              <label for="f2-1">Select the currency</label>
+              <br />
+              <select id="f2-1" name="currency">
+                <option value="" disabled selected>Currency</option>
+                <option value="USD">USD</option>
+                <option value="GBP">GBP</option>
+                <option value="EUR">EUR</option>
+              </select>
             </div>
-            <button type="submit" id="coindesk_form_button">Get fresh data</button>
+            <button type="submit" id="coindesk_form_button">
+              Get fresh data
+            </button>
           </form>
           <!-- https://api.coinstats.app/public/v1/markets?coinId=bitcoin -- Cointstats: difference in bitcoin prices between platforms -->
           <!-- user inserts a coin name and we place it after the coinId in the url, fetch data and get the best deals-->
@@ -63,7 +67,7 @@
             <p>Powered by CoinStats</p>
             <div class="text_input_div">
               <label for="f3-1">Which coin are You interested in?</label>
-              <br/>
+              <br />
               <input
                 id="f3-1"
                 type="text"
@@ -76,7 +80,7 @@
               <label for="amount_of_exchanges"
                 >How many options do You need?</label
               >
-              <br/>
+              <br />
               <input
                 type="radio"
                 id="f3-2-1"
@@ -86,7 +90,7 @@
                 selected
               />
               <label for="f3-2-1">Get the best exchange (by rate)</label>
-              <br/>
+              <br />
               <input
                 type="radio"
                 id="f3-2-2"
@@ -95,7 +99,7 @@
                 required
               />
               <label for="f3-2-2">Get 3 of the best exchanges (by rate)</label>
-              <br/>
+              <br />
               <input
                 type="radio"
                 id="f3-2-3"
@@ -105,7 +109,9 @@
               />
               <label for="f3-2-3">Get 5 of the best exchanges (by rate)</label>
             </div>
-            <button type="submit" id="coinstats_form_button">Get fresh data</button>
+            <button type="submit" id="coinstats_form_button">
+              Get fresh data
+            </button>
           </form>
         </section>
         <section class="results_section" id="results_section">
@@ -127,6 +133,6 @@
     <footer>
       <p>© 2023 Bitropia, All Rights Reserved</p>
     </footer>
-    <script src="/scriptFiles/index.js"></script>
+    <script src="/script-files/index.js"></script>
   </body>
 </html>
