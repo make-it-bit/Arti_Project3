@@ -1,71 +1,15 @@
+import coincapSuccessfulResultHandler from './request-handlers/coincap-request-handler.js';
+import coindeskSuccessfulRequestHandler from './request-handlers/coindesk-request-handler.js';
+import coinstatSuccessfulRequestHandler from './request-handlers/coinstat-request-handler.js';
+import { createTableRow, spinnerDisplayChanger, resultSectionDisplayChanger, unsuccessfulRequestHandler, clearResultsArticle } from './request-handlers/shared-scripts.js';
 // setting display to none on results section
-const resultsSection = document.getElementById("results_section");
-
-const resultSectionDisplayChanger = (toShowOrNot) => {
-  if (toShowOrNot) {
-    resultsSection.style.display = "block";
-  } else {
-    resultsSection.style.display = "none";
-  }
-};
 resultSectionDisplayChanger(false);
-
-//adding other display/etc handlers
-const spinner = document.getElementById("spinner");
-
-const spinnerDisplayChanger = (toShowOrNot) => {
-  if (toShowOrNot) {
-    spinner.style.display = "block";
-  } else {
-    spinner.style.display = "none";
-  }
-};
-
-const resultsArticle = document.getElementById("results_article");
-
-const clearResultsArticle = () => {
-  while (resultsArticle.firstElementChild) {
-    resultsArticle.firstElementChild.remove();
-  }
-};
-
-//table row creater
-const createTableRow = (tableHeaderContent, tableDataContent) => {
-  let tableRow = document.createElement("tr");
-
-  let tableHeader = document.createElement("th");
-  tableHeader.innerText = tableHeaderContent;
-
-  let tableData = document.createElement("td");
-  tableData.innerText = tableDataContent;
-
-  tableRow.appendChild(tableHeader);
-  tableRow.appendChild(tableData);
-
-  return tableRow;
-};
-
-//reject request handler
-const unsuccessfulRequestHandler = (error) => {
-  clearResultsArticle();
-  spinnerDisplayChanger(false);
-
-  let resultsHeader = document.createElement("h4");
-  resultsHeader.innerText = "Bad request!";
-
-  let resultsParagraph = document.createElement("p");
-  resultsParagraph.innerText =
-    "Either the request failed because of a connection error or You entered invalid information.";
-
-  resultsArticle.appendChild(resultsHeader);
-  resultsArticle.appendChild(resultsParagraph);
-};
 
 // handling the coincap form -- get crypto currency data
 const coincapButton = document.getElementById("coincap_form_button");
 const coincapForm = document.getElementById("coincap_form");
 
-coincapButton.addEventListener("click", async (e) => {
+coincapForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   if (coincapForm.checkValidity()) {
     console.log("Coincap form called");
@@ -84,52 +28,11 @@ coincapButton.addEventListener("click", async (e) => {
   }
 });
 
-const coincapSuccessfulResultHandler = (dataSentByServer) => {
-  //try {
-  const data = dataSentByServer.data;
-  console.log("Adding data to results:", data);
-
-  spinnerDisplayChanger(false);
-
-  //adding a header
-  let resultsHeader = document.createElement("h4");
-  resultsHeader.innerText = `${data.name} (${data.symbol})`;
-  resultsArticle.appendChild(resultsHeader);
-
-  //adding a table
-  let tableToDisplay = document.createElement("table");
-  tableToDisplay.setAttribute("class", "table_of_results");
-
-  //adding rows
-  const tableRow1 = createTableRow(
-    "Price",
-    `${Math.floor(data.priceUsd * 100) / 100} USD`
-  );
-  tableToDisplay.appendChild(tableRow1);
-
-  const tableRow2 = createTableRow(
-    "Supply",
-    `${Math.floor(data.supply)} ${data.symbol}`
-  );
-  tableToDisplay.appendChild(tableRow2);
-
-  const tableRow3 = createTableRow(
-    "Price change",
-    `${Math.round(data.changePercent24Hr * 1000) / 1000}%`
-  );
-  tableToDisplay.appendChild(tableRow3);
-
-  resultsArticle.appendChild(tableToDisplay);
-  //} catch(e) {
-  unsuccessfulRequestHandler(e);
-  // }
-};
-
 //handling the Coindesk form - get Bitcoins value in certain currency
 const coindeskFormButton = document.getElementById("coindesk_form_button");
 const coindeskForm = document.getElementById("coindesk_form");
 
-coindeskFormButton.addEventListener("click", (e) => {
+coindeskForm.addEventListener("submit", (e) => {
   e.preventDefault();
   if (coindeskForm.checkValidity()) {
     console.log("Coindesk form called");
@@ -149,32 +52,11 @@ coindeskFormButton.addEventListener("click", (e) => {
   }
 });
 
-const coindeskSuccessfulRequestHandler = (dataSentByServer, currency) => {
-  try {
-    spinnerDisplayChanger(false);
-
-    const data = dataSentByServer.bpi[currency];
-
-    let tableToDisplay = document.createElement("table");
-    //tableToDisplay.setAttribute('class', 'table_of_results');
-
-    const tableRow1 = createTableRow(
-      "Price:",
-      `${Math.floor(data.rate_float * 100) / 100} ${data.code}`
-    );
-
-    tableToDisplay.appendChild(tableRow1);
-    resultsArticle.appendChild(tableToDisplay);
-  } catch (e) {
-    unsuccessfulRequestHandler(e);
-  }
-};
-
 //handling coinstats form
 const coinstatFormButton = document.getElementById("coinstats_form_button");
 const coinstatForm = document.getElementById("coinstats_form");
 
-coinstatFormButton.addEventListener("click", (e) => {
+coinstatForm.addEventListener("submit", (e) => {
   e.preventDefault();
   if (coindeskForm.checkValidity()) {
     console.log("Coinstat form called");
@@ -199,65 +81,3 @@ coinstatFormButton.addEventListener("click", (e) => {
   }
 });
 
-const coinstatSuccessfulRequestHandler = async (
-  dataSentByServer,
-  exchangeAmounts,
-  coinName
-) => {
-  try {
-    //making sure the array returned has items
-    if (dataSentByServer.length === 0) {
-      unsuccessfulRequestHandler("Crypto currency name invalid");
-    }
-    spinnerDisplayChanger(false);
-
-    let resultsHeader = document.createElement("h4");
-    resultsHeader.innerText = `${exchangeAmounts} best exchange(s) for ${coinName}`;
-    resultsArticle.appendChild(resultsHeader);
-
-    let resultsParagraph = document.createElement("p");
-    resultsParagraph.innerText = 'Various trading pairs, "unrelative value"';
-    resultsArticle.appendChild(resultsParagraph);
-
-    const arrayWithBestExchanges = [];
-
-    let indexSlicedAt = 0;
-    let i = 0;
-    let j = 0;
-
-    while (i < exchangeAmounts) {
-      arrayWithBestExchanges[i] = dataSentByServer[j];
-      while (j < dataSentByServer.length) {
-        if (arrayWithBestExchanges[i].price > dataSentByServer[j].price) {
-          arrayWithBestExchanges[i] = dataSentByServer[j];
-          indexSlicedAt = j;
-        }
-        j++;
-      }
-      dataSentByServer.splice(indexSlicedAt, indexSlicedAt);
-      j = 0;
-      i++;
-    }
-
-    //looping them to the table
-    i = 0;
-    let tableToDisplay = document.createElement("table");
-    while (i < arrayWithBestExchanges.length) {
-      let tableRow = document.createElement("tr");
-
-      let tableHeader = document.createElement("th");
-      tableHeader.innerText = `${arrayWithBestExchanges[i].exchange}`;
-      tableRow.appendChild(tableHeader);
-
-      let tableData = document.createElement("td");
-      tableData.innerText = `Pair: ${arrayWithBestExchanges[i].pair}; Price: ${arrayWithBestExchanges[i].price}`;
-      tableRow.appendChild(tableData);
-
-      tableToDisplay.appendChild(tableRow);
-      i++;
-    }
-    resultsArticle.appendChild(tableToDisplay);
-  } catch (e) {
-    unsuccessfulRequestHandler(e);
-  }
-};
