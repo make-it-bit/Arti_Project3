@@ -50,7 +50,7 @@ main {
 .scroll_buttons{
   display: flex;
   justify-content: center;
-  gap: 50%;
+  gap: calc(15px + 9vw);
   max-width: 200px;
   margin: 0 auto;
 }
@@ -282,5 +282,15 @@ footer {
 
   80% {
     opacity: 1;
+  }
+}
+
+@media screen and (max-width: 708px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  input {
+    max-width: 90%;
   }
 }
