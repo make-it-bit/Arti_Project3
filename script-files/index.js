@@ -87,8 +87,14 @@ coinstatForm.addEventListener('submit', async (e) => {
       'input[name="amount_of_exchanges"]:checked'
     ).value;
 
+    //making the query string
+    const queryObj = {
+      coinId: coinName,
+    };
+    const query = new URLSearchParams(queryObj);
+
     const res = await fetch(
-      `https://api.coinstats.app/public/v1/markets?coinId=${coinName}`
+      `https://api.coinstats.app/public/v1/markets?${query.toString()}`
     );
     const data = await res.json();
 
